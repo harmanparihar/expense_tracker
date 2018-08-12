@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Expense tracker</title>
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+  <!-- Including JQuery -->
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+  <!-- Javascript File -->
+  <script src="script.js">
+  </script>
+
+  <!-- CSS Styling -->
+  <link rel="stylesheet" href="style.css">
+
+
+  <!-- Connecting Firebase as database -->
+<script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDJ72EPo7fpslB8Mz2uqEKssWXnCqZpgjM",
+    authDomain: "expense-d2bd7.firebaseapp.com",
+    databaseURL: "https://expense-d2bd7.firebaseio.com",
+    projectId: "expense-d2bd7",
+    storageBucket: "expense-d2bd7.appspot.com",
+    messagingSenderId: "624364489356"
+  };
+  firebase.initializeApp(config);
+</script>
+<!-- END of FIREBASE -->
+
+</head>
+<body>
+<div class="wrapper">
+  <!-- App Header including logo and brand name -->
+<header>
+  <img src="logo.jpg" alt="Logo Image">
+  <h1>Expense Tracker</h1>
+</header>
+
+<!-- Navigation menu -->
+<div class="tabs">
+  <ul>
+    <li><a href="#new_tr">Add New Transaction</a></li>
+    <li><a href="#prev_transaction">Previous Transactions</a></li>
+    <li><a href="#search">Search for Transaction</a></li>
+    <li><a href="#weekly">Weekly Expenses</a></li>
+  </ul>
+</div>
+
+  <!-- Form to add new transaction details -->
+  <div id="new_tr">
+    <form class="add">
+        <label for="amount">Enter the amount spend (CAD) </label>
+        <input type="number" class="amt" id="amount" min=0 step=".01" required>
+        <label for="date">Date of Transaction</label>
+        <input type="date" id="date">
+        <label for="description">Transaction Description</label>
+        <textarea name="desc" placeholder="" id="description" rows="8" cols="80" required>
+        </textarea>
+        <input class="submit" type="submit">
+    </form>
+  </div>
+  <div id="prev_transaction">
+  <div class="t">
+    Total Expenses: $<span class="total"></span>(CAD)
+  </div>
+  </div>
+  <div id="search">
+    <form class="searchbar">
+      <label for="s">Search</label>
+      <input type="text" id="s">
+      <input class="submit" type="submit">
+    </form>
+    <div class="searchlist">
+    </div>
+  <div class="searchtotal">
+  </div>
+  </div>
+  <div id="weekly">
+    Weekly Total Expenses
+  </div>
+</div>
+</body>
+</html>
