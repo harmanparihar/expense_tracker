@@ -7,7 +7,6 @@
   <title>Expense tracker</title>
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-
   <!-- Including JQuery -->
   <script
     src="https://code.jquery.com/jquery-3.3.1.js"
@@ -37,12 +36,13 @@
 </script>
 <!-- END of FIREBASE -->
 
+
 </head>
 <body>
 <div class="wrapper">
   <!-- App Header including logo and brand name -->
 <header>
-  <img src="logo.jpg" alt="Logo Image">
+  <img src="logo.jpg" alt="">
   <h1>Expense Tracker</h1>
 </header>
 
@@ -66,10 +66,13 @@
         <label for="description">Transaction Description</label>
         <textarea name="desc" placeholder="" id="description" rows="8" cols="80" required>
         </textarea>
+
         <input class="submit" type="submit">
     </form>
   </div>
+
   <div id="prev_transaction">
+
   <div class="t">
     Total Expenses: $<span class="total"></span>(CAD)
   </div>
@@ -80,14 +83,19 @@
       <input type="text" id="s">
       <input class="submit" type="submit">
     </form>
+
     <div class="searchlist">
+
     </div>
   <div class="searchtotal">
   </div>
+
   </div>
+
   <div id="weekly">
     Weekly Total Expenses
   </div>
 </div>
+<a class="credits" href='https://www.freepik.com/free-vector/hand-drawing-illustration-of-finance-concept_2780364.htm'>Logo Credits: Designed by Freepik</a>
 </body>
 </html>
