@@ -231,3 +231,8 @@ img{
     margin-left: 10px;
   }
 }
+.error{
+  text-align: center;
+  color:#333;
+  margin: 50px auto;
+}
