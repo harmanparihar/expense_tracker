@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Expense tracker</title>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+  <!-- Javascript File -->
+  <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <!-- Including JQuery -->
+
+  <script src="script.js">
+  </script>
+  <!-- CSS Styling -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Connecting Firebase as database -->
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDJ72EPo7fpslB8Mz2uqEKssWXnCqZpgjM",
+    authDomain: "expense-d2bd7.firebaseapp.com",
+    databaseURL: "https://expense-d2bd7.firebaseio.com",
+    projectId: "expense-d2bd7",
+    storageBucket: "expense-d2bd7.appspot.com",
+    messagingSenderId: "624364489356"
+  };
+  firebase.initializeApp(config);
+</script>
+<!-- END of FIREBASE -->
+</head>
+<body>
+  <header-nav></header-nav>
+  <add-transaction></add-transaction>
+  <prev-transaction></prev-transaction>
+  <search-transaction></search-transaction>
+  <weekly-transaction></weekly-transaction>
+
+  <script src="bower_components/riot/riot+compiler.min.js">
+  </script>
+  <script src="tags/header-nav.js"></script>
+  <script src="tags/add-transaction.js"></script>
+  <script src="tags/prev-transaction.js"></script>
+  <script src="tags/search-transaction.js"></script>
+  <script src="tags/weekly-transaction.js"></script>
+  <script>
+  riot.mount('header-nav');
+  riot.mount('add-transaction');
+  riot.mount('prev-transaction');
+  riot.mount('search-transaction');
+  riot.mount('weekly-transaction');
+  </script>
+</body>
+</html>

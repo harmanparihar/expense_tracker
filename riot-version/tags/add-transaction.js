@@ -1,0 +1,2 @@
+riot.tag2('add-transaction', '<div id="new_tr"> <form class="add"> <label for="amount">Enter the amount spend (CAD) </label> <input class="amt" id="amount" min="0" step=".01" required type="number"> <label for="date">Date of Transaction</label> <input id="date" type="date"> <label for="description">Transaction Description</label> <textarea name="desc" placeholder="" id="description" rows="8" cols="80" required> </textarea> <input class="submit" type="submit"> </form> </div>', '', '', function(opts) {
+});
