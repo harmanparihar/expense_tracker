@@ -1,21 +1,25 @@
 $(function(){
+
   //initial classes assigned to the tabs for required layout
   $("#prev_transaction").addClass("nonexpanded");
   $("#new_tr").addClass("expanded");
   $("#search").addClass("nonexpanded");
   $("#weekly").addClass("nonexpanded");
 
+
 // initializing the input fields
   $("#amount").val("");
   $("#description").val("");
   $("#amount").focus();
 
+
   let total = 0; //Gloabal variable for storing total amount of expenses
   const ref = firebase.database().ref('/transaction');// Creating a firebase reference object
 
+
 // Event handling for the first tab (Adding new transaction)
 // Displaying just the components required for adding new transacting and hiding others
-  $(".addlink").unbind().click(function(){
+  $(".tabs ul li:nth-of-type(1)").unbind().click(function(){
     $("#prev_transaction").addClass("nonexpanded");
     $("#prev_transaction").removeClass("expanded");
     $("#new_tr").addClass("expanded");
@@ -42,7 +46,7 @@ $(function(){
 
 
   // Event handling for the second tab (Viewing Previous transactions)
-  $(".prevlink").unbind().click(function(){
+  $(".tabs ul li:nth-of-type(2)").unbind().click(function(){
   $("#prev_transaction").addClass("expanded");
   $("#new_tr").addClass("nonexpanded");
   $("#search").addClass("nonexpanded");
@@ -80,7 +84,7 @@ $(function(){
 
 
   // Event handling for the third tab (Searching for transactions)
-$(".searchlink").unbind().click(function(){
+$(".tabs ul li:nth-of-type(3)").unbind().click(function(){
   $("#prev_transaction").addClass("nonexpanded");
   $("#new_tr").addClass("nonexpanded");
   $("#search").addClass("expanded");
@@ -95,6 +99,7 @@ $(".searchlink").unbind().click(function(){
   $(".searchbar").submit(function(event){
     event.preventDefault();
     let sum = 0;
+    let flag=0;
     $(".searchlist").html("");
     $(".searchtotal").html("");
     $(".searchtotal").append('<div class="st">Total: <span class="sum"></span>(CAD)</div>');
@@ -108,6 +113,7 @@ $(".searchlink").unbind().click(function(){
       let desc = Obj.description;
       let date= Obj.date;
       if(desc.toLowerCase().indexOf(str.toLowerCase())>=0){
+      flag=1;
       sum= sum + parseFloat(amt);
       $(".sum").html(sum);
       $(".searchlist").prepend(`<div id=${Id}>
@@ -126,10 +132,14 @@ $(".searchlink").unbind().click(function(){
         });
       }
     });
+    if(flag==0){
+      $(".searchtotal").html("");
+      $("#search").append(`<div class="error">Sorry nothing related was found! Try a different keyword. </div>`);
+    }
   });
 
   // Event handling for the fourth tab (Weekly total for transactions made in an year)
-  $(".weeklink").unbind().click(function(){
+  $(".tabs ul li:nth-of-type(4)").unbind().click(function(){
     $("#weekly").html("");
     $("#prev_transaction").addClass("nonexpanded");
     $("#new_tr").addClass("nonexpanded");
